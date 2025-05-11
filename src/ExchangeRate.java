@@ -24,7 +24,7 @@ public class ExchangeRate {
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            // Análisis detallado de la respuesta
+
             System.out.println("== RESPUESTA DE LA API ==");
             System.out.println("Código de estado: " + response.statusCode());
 
@@ -34,7 +34,7 @@ public class ExchangeRate {
             System.out.println("\nCuerpo (JSON plano):");
             System.out.println(response.body());
 
-            // Procesamiento del JSON solo si la respuesta fue exitosa
+
             if (response.statusCode() == 200) {
                 Gson gson = new Gson();
                 JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
