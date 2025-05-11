@@ -27,16 +27,15 @@ public class Principal {
         return montoCOP / ExchangeRate.tasaCOP;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        // Cargar tasas desde la API
-        ExchangeRate.getExchangeRates();
+    public static void mostrarMenu() {
+        Scanner scanner = new Scanner(System.in);
 
         int opcion;
 
         do {
-            System.out.println("\nBienvenido al conversor de monedas:");
+            System.out.println("\n¡Bienvenido al Conversor de Monedas!");
+            System.out.println("Seleccione una opción para convertir:");
             System.out.println("1) Dólar => Peso argentino");
             System.out.println("2) Peso argentino => Dólar");
             System.out.println("3) Dólar => Real brasileño");
@@ -44,7 +43,8 @@ public class Principal {
             System.out.println("5) Dólar => Peso colombiano");
             System.out.println("6) Peso colombiano => Dólar");
             System.out.println("7) Salir");
-            System.out.print("Elija una opción válida: ");
+            System.out.print("Elija una opción válida (1-7): ");
+
 
             opcion = scanner.nextInt();
 
@@ -92,7 +92,7 @@ public class Principal {
                     break;
 
                 case 7:
-                    System.out.println("Gracias por usar el conversor. ¡Hasta luego!");
+                    System.out.println("¡Gracias por usar el conversor de monedas! ¡Hasta luego!");
                     break;
 
                 default:
@@ -101,9 +101,13 @@ public class Principal {
             }
 
         } while (opcion != 7);
+    }
 
-        scanner.close();
+    public static void main(String[] args) {
+
+        ExchangeRate.getExchangeRates();
+
+
+        mostrarMenu();
     }
 }
-
-
